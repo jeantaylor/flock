@@ -4,19 +4,29 @@ require("dotenv").config();
 const cors = require("cors"); 
 const app = express(); 
 
+
 /// Connect to MongoDB Atlas 
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log("Opened: Flock <--> Flock DB")
+    console.log("Opened Flock <--> Flock DB")
 })
+
+
+/// Import Routes 
+const todosRoute = require("./routes/api/todos"); 
+const settingsRoute = require("./routes/api/settings"); 
+
 
 /// Middleware
 app.use(cors()); 
 app.use(express.json()); 
+app.use("/todos", todosRoute); 
+app.use("/settings", settingsRoute); 
+
 
 /// Base API Route --> Short Documentation 
 app.get("/", (req, res) => {
     res.json({
-        MSG: "Methods used in this API:", 
+        endpoints: "Methods used in this API:", 
         getTodos: "/todos/:user/:haus --> returns user's to-do list for a certain tab", 
         postTodos: "/todos/:user/:haus --> returns msg of success or failure of post + updated list of to-dos for a certain tab", 
         patchTodosTxt: "/todos/edit/:user/:haus/:todoid --> returns updated to-do + updated list of to-dos for a certain tab", 
@@ -26,9 +36,6 @@ app.get("/", (req, res) => {
         patchSettings: "/settings/:user/:setting --> returns msg of success or failure of patch + updated user settings"
     })
 })
-
-
-
 
 
 /// Request Listener 
