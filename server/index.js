@@ -12,6 +12,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 
 
 /// Import Routes 
+const usersRoute = require("./routes/api/users"); 
 const todosRoute = require("./routes/api/todos"); 
 const settingsRoute = require("./routes/api/settings"); 
 
@@ -19,6 +20,7 @@ const settingsRoute = require("./routes/api/settings");
 /// Middleware
 app.use(cors()); 
 app.use(express.json()); 
+app.use("/user", usersRoute); 
 app.use("/todos", todosRoute); 
 app.use("/settings", settingsRoute); 
 

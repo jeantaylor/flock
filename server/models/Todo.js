@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const TodoSchema = mongoose.Schema({
     haus: { 
         type: String, 
-        required: true
+        required: true, 
+        default: "Web Dev"
     }, 
     status: { 
         type: String, 
@@ -16,4 +17,4 @@ const TodoSchema = mongoose.Schema({
     } 
 })
 
-module.exports = mongoose.model("Todos", TodoSchema); 
+module.exports = mongoose.model("Todos", TodoSchema);  
