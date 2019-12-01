@@ -29,11 +29,13 @@ app.use("/settings", settingsRoute);
 app.get("/", (req, res) => {
     res.json({
         endpoints: "Methods used in this API:", 
+        postUser: "/user/new --> returns msg of success or failure of post + new user", 
+        getUser: "/user/:user --> returns all user data including preferences and todos", 
         getTodos: "/todos/:user/:haus --> returns user's to-do list for a certain tab", 
         postTodos: "/todos/:user/:haus --> returns msg of success or failure of post + updated list of to-dos for a certain tab", 
-        patchTodosTxt: "/todos/edit/:user/:haus/:todoid --> returns updated to-do + updated list of to-dos for a certain tab", 
-        patchTodosStatus: "/todos/dstatus/:user/:haus/:todoid --> returns new status of to-do", 
-        deleteTodos: "/todos/:user/:haus/:todoid --> returns msg of success or failure of delete + updated list of to-dos for a certain tab", 
+        patchTodosTxt: "/todos/edit/:user/:haus/:todoId --> returns updated to-do + updated list of to-dos for a certain tab", 
+        patchTodosStatus: "/todos/dstatus/:user/:haus/:todoId --> returns new status of to-do", 
+        deleteTodos: "/todos/:user/:haus/:todoId --> returns msg of success or failure of delete + updated list of to-dos for a certain tab", 
         getSettings: "/settings/:user --> returns user's saved settings", 
         patchSettings: "/settings/:user/:setting --> returns msg of success or failure of patch + updated user settings"
     })
