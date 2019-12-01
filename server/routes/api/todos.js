@@ -1,5 +1,6 @@
 const express = require("express"); 
 const router = express.Router(); 
+const User = require('../../models/User'); 
 const Todo = require("../../models/Todo"); 
 
 
@@ -7,10 +8,10 @@ const Todo = require("../../models/Todo");
 /// GET all todos for a user for a certain tab
 router.get("/:user/:haus", async (req, res) => {
     try{
-        const todos = await Todo.find({haus: req.params.haus});
+        const todos = await User.findById(req.params.user, "todos"); 
         res.status(200).json(todos); 
     } catch(err){
-        resstatus(400).json({msg : err}); 
+        res.status(400).json({msg : err}); 
     }
 }); 
 
@@ -18,16 +19,21 @@ router.get("/:user/:haus", async (req, res) => {
 /// POST a new todo for a user into a certain tab
 router.post("/:user/:haus", async (req, res) => {
     const todo = new Todo({
-        haus: req.body.haus, 
+        haus: req.params.haus, 
         txt: req.body.txt
     }); 
     
-    try{
-        const savedTodo = await todo.save(); 
-        res.status(201).json(savedTodo); 
-    } catch(err){
-        resstatus(400).json({msg: err}); 
-    }
+    User.findByIdAndUpdate(req.params.user,
+        {$push: {todos: todo}},
+        {safe: true, upsert: true},
+        function(err, doc) {
+            if(err){
+            res.status(400).json({msg : err});
+            }else{
+            res.status(200).json(todo); 
+            }
+        }
+    );
 })
 
 

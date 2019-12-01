@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); 
+const PreferenceSchema = require("./Preference.js"); 
 
 const UserSchema = mongoose.Schema({
     name: {
@@ -12,7 +13,14 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    preferences: {
+        type: PreferenceSchema, 
+        default: () => ({})
+    }, 
+    todos: []
 })
 
-module.exports = mongoose.model("Users", UserSchema);  
+let User = mongoose.model("User", UserSchema);
+
+module.exports = User; 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PreferenceListSchema = mongoose.Schema({
+const PreferenceSchema = mongoose.Schema({
 	birb: {
 		type: Boolean,
 		required: true,
@@ -43,4 +43,4 @@ const PreferenceListSchema = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('PreferenceLists', PreferenceListSchema);
+module.exports = PreferenceSchema;

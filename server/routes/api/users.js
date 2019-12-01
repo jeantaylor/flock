@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../../models/User');
-const Todo = require("../../models/Todo");
-const PreferenceList = require("../../models/Todo");
+
 
 /// POST a new user
 router.post('/new', async (req, res) => {
-	const newUser = new User({});
+	const newUser = new User({
+		name: req.body.name, 
+		email: req.body.email, 
+		password: req.body.password
+	});
 
 	try {
 		const savedUser = await newUser.save();
@@ -16,8 +19,13 @@ router.post('/new', async (req, res) => {
 	}
 });
 /// GET all user data for a certain user
-router.get('/:user', (req, res) => {
-	res.send('getSettings call');
+router.get('/:user', async (req, res) => {
+	try {
+		const user = await User.findOne({_id: req.params.user}); 
+		res.status(200).json(user); 
+	} catch(err) {
+		res.status(400).json({msg : err}); 
+	}
 });
 
 module.exports = router;
