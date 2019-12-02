@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"); 
-const PreferenceSchema = require("./Preference.js"); 
+const PreferenceSchema = require("./Preference"); 
 
 const UserSchema = mongoose.Schema({
     name: {

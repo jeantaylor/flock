@@ -17,12 +17,24 @@ router.get("/:user", async (req, res) => {
 
 /// PATCH a certain setting for a certain user ---> DOUBLE CHECK THIS ONLY WORKS WITH :SETTING HARD-CODED 
 router.patch("/:user/:setting", async (req, res) => { 
-    const v = `preferences.${req.params.setting}`
-    await User.findByIdAndUpdate(req.params.user, 
-        {$set: {v : req.body.setting}}, 
-        function(err, doc) {
-            res.status(200).json(doc);
-    });
+    const preferences = await User.findById(req.params.user, "preferences"); 
+    const target = req.params.setting
+    preferences.preferences.target = req.body.setting; 
+
+    // User.findByIdAndUpdate(req.params.user,
+    //     {$set: {
+    //         preferences: preferences.preferences
+    //     }},
+    //     {new: true}, 
+    //     function(err, user) {
+    //         if (err) {
+    //             res.status(400).json(err);
+    //         }else {
+    //             res.status(200).json(user);
+    //         }
+    //     }
+    // );
+    res.status(200).json(preferences.preferences); 
 })
 
 module.exports = router; 
