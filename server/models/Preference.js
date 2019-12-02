@@ -43,4 +43,6 @@ const PreferenceSchema = mongoose.Schema({
 	}
 });
 
-module.exports = PreferenceSchema;
+let Preference = mongoose.model("Preference", PreferenceSchema); 
+
+module.export = Preference; 

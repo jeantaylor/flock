@@ -1,6 +1,6 @@
 const express = require("express"); 
 const router = express.Router(); 
-const User = require('../../models/User'); 
+const User = require("../../models/User"); 
 const Todo = require("../../models/Todo"); 
 
 
@@ -55,15 +55,11 @@ router.patch("/edit/:user/:haus/:todoid", async (req, res) => {
 
 /// PATCH a certain todo STATUS for a user in a certain tab
 router.patch("/dstatus/:user/:haus/:todoid", async (req, res) => {
-    try{
-        const updatedTodo = await Todo.updateOne(
-            { _id: req.params.todoid}, 
-            {$set: {status: req.body.status}}
-        ); 
-        res.status(200).json(updatedTodo); 
-    } catch(err){
-        res.status(400).json({msg : err}); 
-    }
+    User.findByIdAndUpdate(req.params.user, {$set: 
+        Todo.findByIdAndUpdate(req.params.todoid, {$set: {"status": req.body.status}})}, 
+        function(err, doc) {
+            res.status(200).json(doc);
+    });
 })
 
 
