@@ -39,28 +39,51 @@ router.post("/:user/:haus", async (req, res) => {
 })
 
 
-/// PATCH a certain todo TXT for a user in a certain tab
+/// PATCH a certain todo TXT for a user in a certain tab --> DONE
 router.patch("/edit/:user/:haus/:todoid", async (req, res) => {
-    try{
-        const updatedTodo = await Todo.updateOne(
-            { _id: req.params.todoid}, 
-            {$set: {txt: req.body.txt}}
-        ); 
-        res.status(200).json(updatedTodo); 
-    } catch(err){
-        res.status(400).json({msg : err}); 
-    }
+    const todos = await User.findById(req.params.user, "todos"); 
+    const updatedTodo = todos.todos.filter(todo => 
+        todo._id == req.params.todoid); 
+    updatedTodo[0].txt = req.body.txt; 
+
+    User.findByIdAndUpdate(req.params.user,
+        {$set: {
+            todos: todos.todos
+        }},
+        {new: true}, 
+        function(err, user) {
+            if (err) {
+                res.status(400).json(err);
+            }else {
+                res.status(200).json(user);
+            }
+        }
+    ); 
 })
 
 
-/// PATCH a certain todo STATUS for a user in a certain tab
+/// PATCH a certain todo STATUS for a user in a certain tab ---> DONE
 router.patch("/dstatus/:user/:haus/:todoid", async (req, res) => {
-    User.findByIdAndUpdate(req.params.user, {$set: 
-        Todo.findByIdAndUpdate(req.params.todoid, {$set: {"status": req.body.status}})}, 
-        function(err, doc) {
-            res.status(200).json(doc);
-    });
+    const todos = await User.findById(req.params.user, "todos"); 
+    const updatedTodo = todos.todos.filter(todo => 
+        todo._id == req.params.todoid); 
+    updatedTodo[0].status = req.body.status; 
+
+    User.findByIdAndUpdate(req.params.user,
+        {$set: {
+            todos: todos.todos
+        }},
+        {new: true}, 
+        function(err, user) {
+            if (err) {
+                res.status(400).json(err);
+            }else {
+                res.status(200).json(user);
+            }
+        }
+    );       
 })
+
 
 
 /// DELETE a certain todo for a user in a certain tab --> DONE

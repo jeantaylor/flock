@@ -15,10 +15,11 @@ router.get("/:user", async (req, res) => {
     }
 }); 
 
-/// PATCH a certain setting for a certain user ---> DOUBLE CHECK THIS ONLY WORKS WITH :SETTING HARD-CODED
-router.patch("/:user/:setting", async (req, res) => {
+/// PATCH a certain setting for a certain user ---> DOUBLE CHECK THIS ONLY WORKS WITH :SETTING HARD-CODED 
+router.patch("/:user/:setting", async (req, res) => { 
+    const v = `preferences.${req.params.setting}`
     await User.findByIdAndUpdate(req.params.user, 
-        {$set: {"preferences.paper": req.body.setting}}, 
+        {$set: {v : req.body.setting}}, 
         function(err, doc) {
             res.status(200).json(doc);
     });
