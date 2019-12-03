@@ -85,7 +85,6 @@ router.patch("/dstatus/:user/:haus/:todoid", async (req, res) => {
 })
 
 
-
 /// DELETE a certain todo for a user in a certain tab --> DONE
 router.delete("/:user/:haus/:todoid", async (req, res) => {
     const todos = await User.findById(req.params.user, "todos"); 

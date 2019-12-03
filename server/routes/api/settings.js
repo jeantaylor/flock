@@ -15,6 +15,7 @@ router.get("/:user", async (req, res) => {
     }
 }); 
 
+
 /// PATCH Birb ---> DONE
 router.patch("/:user/birb", async (req, res) => { 
     const preferences = await User.findById(req.params.user, "preferences"); 
@@ -34,6 +35,7 @@ router.patch("/:user/birb", async (req, res) => {
         }
     );
 })
+
 
 /// PATCH Paper ---> DONE
 router.patch("/:user/paper", async (req, res) => { 
@@ -55,6 +57,7 @@ router.patch("/:user/paper", async (req, res) => {
     );
 })
 
+
 /// PATCH Font ---> DONE
 router.patch("/:user/font", async (req, res) => { 
     const preferences = await User.findById(req.params.user, "preferences"); 
@@ -74,6 +77,7 @@ router.patch("/:user/font", async (req, res) => {
         }
     );
 })
+
 
 /// PATCH wrkDur --->DONE
 router.patch("/:user/wrkDur", async (req, res) => { 
@@ -95,6 +99,7 @@ router.patch("/:user/wrkDur", async (req, res) => {
     );
 })
 
+
 /// PATCH shrtBreak ---> DONE
 router.patch("/:user/shrtBreak", async (req, res) => { 
     const preferences = await User.findById(req.params.user, "preferences"); 
@@ -114,6 +119,7 @@ router.patch("/:user/shrtBreak", async (req, res) => {
         }
     );
 })
+
 
 /// PATCH lngBreak
 router.patch("/:user/lngBreak", async (req, res) => { 
@@ -135,6 +141,7 @@ router.patch("/:user/lngBreak", async (req, res) => {
     );
 })
 
+
 /// PATCH shrtPerLng
 router.patch("/:user/shrtPerLng", async (req, res) => { 
     const preferences = await User.findById(req.params.user, "preferences"); 
@@ -154,6 +161,7 @@ router.patch("/:user/shrtPerLng", async (req, res) => {
         }
     );
 })
+
 
 /// PATCH alert
 router.patch("/:user/alert", async (req, res) => { 
