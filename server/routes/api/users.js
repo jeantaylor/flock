@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../../models/User");
 
 
+
 /// POST a new user --> DONE
 router.post('/new', async (req, res) => {
 	const newUser = new User({
@@ -18,6 +19,8 @@ router.post('/new', async (req, res) => {
 		res.status(400).json({ msg: err });
 	}
 });
+
+
 /// GET all user data for a certain user --> DONE 
 router.get('/:user', async (req, res) => {
 	try {
