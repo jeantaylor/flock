@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'; 
 
-import TodoAdd from './Todo/TodoAdd'; 
-import TodoContainer from './Todo/TodoContainer'; 
+import AddTodo from './Todo/AddTodo'; 
+import TodoCard from './Todo/TodoCard'; 
 
 /// Const Variables
 const todosUrl = "http://localhost:8080/todos/"
@@ -19,7 +19,9 @@ export default class Notebook extends Component {
         }
     }
 
+
     /// Function Declariations
+
 
     componentDidMount() {
         axios.get(todosUrl + `${this.state.userId}` + "/" + `${this.state.haus}`) 
@@ -31,12 +33,15 @@ export default class Notebook extends Component {
         );
     }
 
+
     render() {
         return (
             <div>
                 <div>--- NOTEBOOK ---</div>
-                <TodoAdd />
-                <TodoContainer 
+                <AddTodo 
+                    userId = {this.state.userId} 
+                />
+                <TodoCard 
                     userId = {this.state.userId} 
                     todos = {this.state.todoData}
                 />
