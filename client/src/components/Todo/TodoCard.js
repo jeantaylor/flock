@@ -14,13 +14,6 @@ export default class TodoCard extends Component {
         }
     }
 
-    componentDidUpdate() {
-        const todos = this.props.todos; 
-        // console.log("These have been given to me by my parent: TodoList.js"); 
-        // console.log(todos); 
-    };
-
-
     render() {
         const view = this.state.mode === "view"; 
 
@@ -46,6 +39,7 @@ export default class TodoCard extends Component {
                             />
                     }
                     <Kbab id = {todo._id} />
+                    <p></p>
                 </article>
             )
         }); 
