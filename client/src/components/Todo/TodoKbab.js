@@ -1,10 +1,16 @@
-/// Imports 
-import React from 'react'
+/// Import Libraries
+import React, { Component } from 'react'
 
-export default function TodoKbab() {
-    return (
-        <div>
-            <div>Kbab? YesBab!</div>
-        </div>
-    )
+export default class TodoKbab extends Component {
+    constructor(props) {
+        super(props); 
+    }
+
+    render() {
+        return (
+            <div>
+                Kbab? Yes-bab!
+            </div>
+        )
+    }
 }

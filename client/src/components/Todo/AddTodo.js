@@ -1,10 +1,15 @@
-/// Imports
-import React from 'react'
+/// Import Libraries
+import React, { Component } from 'react'
 
-export default function TodoAdd() {
-    return (
-        <div>
-            <div> TODO INPUT BAR GOES HERE </div>
-        </div>
-    )
+export default class AddTodo extends Component {
+    render() {
+        return (
+            <form>
+                <input 
+                    placeholder = "Give me Todos to digest!"
+                />
+                <button type="submit">Plus Bucket</button>
+            </form>
+        )
+    }
 }

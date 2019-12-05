@@ -9,11 +9,6 @@ import React, { Component } from 'react'
 export default class ControlPanel extends Component {
     constructor(props) {
         super(props); 
-        this.state = {
-            username: "jean", 
-            userId: "5de334329e70eb23286d8b40",
-            settings: []
-        }
     }
 
     /// Function Declariations

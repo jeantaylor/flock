@@ -1,10 +1,14 @@
-/// Imports
-import React from 'react'
+/// Import Libraries
+import React, { Component } from 'react'
 
-export default function TodoStatusBtn() {
-    return (
-        <div>
-            <div>I'm supposed to be a TodoStatusBtn...</div>
-        </div>
-    )
+export default class TodoStatusBtn extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>{this.props.status}</div>
+        )
+    }
 }
