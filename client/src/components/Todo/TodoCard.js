@@ -1,10 +1,15 @@
-/// Imports
+/// Import Libraries
 import React, { Component } from 'react'; 
 
+/// Import Components
 import StatusBtn from './TodoStatusBtn'; 
 import Kbab from './TodoKbab'; 
 
 export default class TodoCard extends Component {
+    constructor(props) {
+        super(props); 
+    }
+
     render() {
         let newCards = this.props.todos.map( todo => {
             return (
@@ -15,9 +20,13 @@ export default class TodoCard extends Component {
                     <StatusBtn 
                         id = {todo._id}
                         status = {todo.status} />
-                    <span contentEditable>{todo.txt}</span>
+                    <form id = {todo.id}>
+                        <input 
+                            placeholder = {todo.txt} 
+                        />
+                        <button type="submit">save</button>
+                    </form>
                     <Kbab id = {todo._id} />
-                    <p></p>
                 </article>
             )
         }); 
