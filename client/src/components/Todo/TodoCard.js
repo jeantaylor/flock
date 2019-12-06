@@ -8,6 +8,8 @@ import Kbab from './TodoKbab';
 export default class TodoCard extends Component {
     render() {
         const updateTodo = this.props.updateTodo; 
+        const deleteTodo = this.props.deleteTodo; 
+
         let newCards = this.props.todos.map( todo => {
             return (
                 <article 
@@ -27,7 +29,10 @@ export default class TodoCard extends Component {
                         />
                         <button type='submit'>save</button>
                     </form>
-                    <Kbab id = {todo._id} />
+                    <Kbab 
+                        id = {todo._id} 
+                        deleteTodo = {deleteTodo} 
+                    />
                 </article>
             )
         }); 

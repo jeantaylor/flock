@@ -13,7 +13,8 @@ const currentHaus = 'restaurant';
 const currentUserId = '5de334179e70eb23286d8b3e'; 
 const userUrl = `http://localhost:8080/user/${currentUserId}`; 
 const todosUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}`; 
-const patchTodoUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`
+const patchTodoUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`; 
+const deleteTodoUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}/`; 
 
 
 export default class App extends Component {
@@ -64,6 +65,18 @@ export default class App extends Component {
         })
     }
 
+    deleteTodo = (event) => {
+        event.preventDefault(); 
+        Axios({
+            method: "delete", 
+            url: deleteTodoUrl + event.target.id
+        }).then (res => {
+            this.setState(prevState => ({
+                userData: res.data
+            }))
+        })
+    }
+
     render() {
 
         if (this.state.loading) {
@@ -83,6 +96,7 @@ export default class App extends Component {
                                         todos = {this.state.userData.todos} 
                                         createTodo = {this.createTodo} 
                                         updateTodo = {this.updateTodo} 
+                                        deleteTodo = {this.deleteTodo} 
                                         {...props}
                                     />  
                             }
