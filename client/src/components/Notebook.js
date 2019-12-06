@@ -10,7 +10,7 @@ export default class Notebook extends Component {
         return (
             <>
                 <div>--- NOTEBOOK ---</div>
-                <AddTodo />
+                <AddTodo createTodo = {this.props.createTodo} />
                 <TodoCard todos = {this.props.todos} />
             </>
         )

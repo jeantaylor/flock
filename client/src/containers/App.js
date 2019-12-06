@@ -9,26 +9,50 @@ import ControlPanel from '../components/ControlPanel';
 import Axios from 'axios';
 
 /// Const Variables 
-const currentUserId = '5de334329e70eb23286d8b40'; 
+const currentHaus = 'restaurant'; 
+const currentUserId = '5de334179e70eb23286d8b3e'; 
 const userUrl = `http://localhost:8080/user/${currentUserId}`; 
+const todosUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}`; 
+
 
 export default class App extends Component {
     constructor(props) {
         super(props); 
         this.state = {
-            userData: []
+            loading: true,
+            userData: {}
         }
     }
 
     componentDidMount() {
         Axios.get(userUrl)
-            .then (res => {
-                this.setState({userData: res.data}); 
+            .then ( res => {
+                this.setState({userData: res.data, loading: false}); 
             })
     }
 
+    createTodo = (event) => {
+        event.preventDefault(); 
+        Axios({
+            method: "post", 
+            url: todosUrl, 
+            data: {txt: event.target.txt.value}
+        }).then (resp => {
+            this.setState(prevState => ({
+                userData: { 
+                    ...prevState.userData, 
+                    todos: [
+                        ...prevState.userData.todos,
+                        resp.data
+                    ]
+                }
+            }))
+        })
+    }
+
     render() {
-        if (this.state.userData.length === 0) {
+
+        if (this.state.loading) {
             return (
                 <div>Empty</div>
             )
@@ -40,11 +64,13 @@ export default class App extends Component {
                     <Switch>
                         <Route
                             path = "/todos/:user" 
-                            render = {props => {
-                                return (
-                                    <Notebook todos = {this.state.userData.todos} />
-                                )
-                            }}
+                            render = {props => 
+                                    <Notebook 
+                                        todos = {this.state.userData.todos} 
+                                        createTodo = {this.createTodo}
+                                        {...props}
+                                    />  
+                            }
                         />
                         <Route 
                             path = "/settings/:user"

@@ -30,9 +30,9 @@ router.post("/:user/:haus", async (req, res) => {
         {safe: true, upsert: true},
         function(err, doc) {
             if(err){
-            res.status(400).json({msg : err});
+                res.status(400).json({msg : err});
             }else{
-            res.status(200).json(todo); 
+                res.status(200).json(todo); 
             }
         }
     );

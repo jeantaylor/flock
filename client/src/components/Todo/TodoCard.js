@@ -6,10 +6,6 @@ import StatusBtn from './TodoStatusBtn';
 import Kbab from './TodoKbab'; 
 
 export default class TodoCard extends Component {
-    constructor(props) {
-        super(props); 
-    }
-
     render() {
         let newCards = this.props.todos.map( todo => {
             return (
