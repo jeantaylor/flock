@@ -95,14 +95,15 @@ router.delete("/:user/:haus/:todoid", async (req, res) => {
 
     User.findByIdAndUpdate(req.params.user,
         {$pull: {todos: toDelete[0]}},
-        {safe: true, upsert: true},
+        {safe: true, upsert: true, new: true}, 
+        function(err, user) {
+            if (err) {
+                res.status(200).json(err); 
+            }else {
+                res.status(200).json(user); 
+            }
+        }
     );
-
-    const updatedTodos = await User.findById(req.params.user, "todos"); 
-    const updatedArr = todos.todos.filter(todo => 
-        todo.haus === req.params.haus);
-    res.status(201).json(updatedArr); 
-
 })
 
 module.exports = router; 

@@ -18,6 +18,8 @@ export default class TodoKbab extends Component {
     }
 
     render() {
+        const deleteTodo = this.props.deleteTodo; 
+        
         return (
             <div className = 'kbabMenu'>
                 <button 
@@ -38,6 +40,7 @@ export default class TodoKbab extends Component {
                             <button 
                                 className = 'kbabMenu__action' 
                                 id = {this.props.id} 
+                                onClick = {deleteTodo}
                             >
                                 Delete
                             </button>
