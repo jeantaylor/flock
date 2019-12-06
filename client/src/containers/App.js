@@ -39,10 +39,13 @@ export default class App extends Component {
             url: todosUrl, 
             data: {txt: event.target.txt.value}
         }).then (res => {
+            const newTodos = this.state.userData.todos; 
+            newTodos.push(res.data); 
+
             this.setState(prevState => ({
                 userData: { 
                     ...prevState.userData, 
-                    todos: res.data.todos
+                    todos: newTodos
                 }
             }))
         })
@@ -50,15 +53,11 @@ export default class App extends Component {
 
     updateTodo = (event) => {
         event.preventDefault(); 
-        console.log(event.target.id); 
-        console.log(event.target.txt.value); 
         Axios({
             method: "patch", 
             url: patchTodoUrl + event.target.id, 
             data: {txt: event.target.txt.value}
         }).then (res => {
-            console.log(res.data.todos);
-
             this.setState(prevState => ({
                 userData: res.data
             }))
