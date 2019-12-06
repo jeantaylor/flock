@@ -8,10 +8,10 @@ export default class AddTodo extends Component {
                 onSubmit = {this.props.createTodo}
             >
                 <input 
-                    name = "txt"
-                    placeholder = "Give me Todos to digest!"
+                    name = 'txt'
+                    placeholder = 'Give me Todos to digest!'
                 />
-                <button type="submit">Plus Bucket</button>
+                <button type='submit'>Plus Bucket</button>
             </form>
         )
     }

@@ -7,6 +7,7 @@ import Kbab from './TodoKbab';
 
 export default class TodoCard extends Component {
     render() {
+        const updateTodo = this.props.updateTodo; 
         let newCards = this.props.todos.map( todo => {
             return (
                 <article 
@@ -16,11 +17,15 @@ export default class TodoCard extends Component {
                     <StatusBtn 
                         id = {todo._id}
                         status = {todo.status} />
-                    <form id = {todo.id}>
+                    <form 
+                        id = {todo._id} 
+                        onSubmit = {updateTodo}
+                    >
                         <input 
+                            name = 'txt'
                             placeholder = {todo.txt} 
                         />
-                        <button type="submit">save</button>
+                        <button type='submit'>save</button>
                     </form>
                     <Kbab id = {todo._id} />
                 </article>

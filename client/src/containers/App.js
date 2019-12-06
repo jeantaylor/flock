@@ -13,6 +13,7 @@ const currentHaus = 'restaurant';
 const currentUserId = '5de334179e70eb23286d8b3e'; 
 const userUrl = `http://localhost:8080/user/${currentUserId}`; 
 const todosUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}`; 
+const patchTodoUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`
 
 
 export default class App extends Component {
@@ -37,15 +38,29 @@ export default class App extends Component {
             method: "post", 
             url: todosUrl, 
             data: {txt: event.target.txt.value}
-        }).then (resp => {
+        }).then (res => {
             this.setState(prevState => ({
                 userData: { 
                     ...prevState.userData, 
-                    todos: [
-                        ...prevState.userData.todos,
-                        resp.data
-                    ]
+                    todos: res.data.todos
                 }
+            }))
+        })
+    }
+
+    updateTodo = (event) => {
+        event.preventDefault(); 
+        console.log(event.target.id); 
+        console.log(event.target.txt.value); 
+        Axios({
+            method: "patch", 
+            url: patchTodoUrl + event.target.id, 
+            data: {txt: event.target.txt.value}
+        }).then (res => {
+            console.log(res.data.todos);
+
+            this.setState(prevState => ({
+                userData: res.data
             }))
         })
     }
@@ -67,7 +82,8 @@ export default class App extends Component {
                             render = {props => 
                                     <Notebook 
                                         todos = {this.state.userData.todos} 
-                                        createTodo = {this.createTodo}
+                                        createTodo = {this.createTodo} 
+                                        updateTodo = {this.updateTodo} 
                                         {...props}
                                     />  
                             }
