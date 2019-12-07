@@ -1,9 +1,10 @@
 /// Import Libraries
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 /// Import Components
-import AddTodo from "./Todo/AddTodo";
-import TodoCard from "./Todo/TodoCard";
+import AddTodo from './Todo/AddTodo';
+import TodoCard from './Todo/TodoCard';
+import Pomo from './Pomodoro/PomoTimer';
 
 export default class Notebook extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class Notebook extends Component {
           updateStatus={this.props.updateStatus}
           deleteTodo={this.props.deleteTodo}
         />
+        <Pomo preferences={this.props.preferences} />
       </>
     );
   }
