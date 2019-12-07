@@ -13,7 +13,8 @@ export default class Notebook extends Component {
                 <AddTodo createTodo = {this.props.createTodo} />
                 <TodoCard 
                     todos = {this.props.todos} 
-                    updateTodo = {this.props.updateTodo} 
+                    updateTxt = {this.props.updateTxt} 
+                    updateStatus = {this.props.updateStatus} 
                     deleteTodo = {this.props.deleteTodo}
                 />
             </>
