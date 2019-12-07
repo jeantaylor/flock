@@ -13,7 +13,8 @@ const currentHaus = 'restaurant';
 const currentUserId = '5de334179e70eb23286d8b3e'; 
 const userUrl = `http://localhost:8080/user/${currentUserId}`; 
 const todosUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}`; 
-const patchTodoUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`; 
+const patchTxtUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`; 
+const patchStatusUrl = `http://localhost:8080/todos/dstatus/${currentUserId}/${currentHaus}/`
 const deleteTodoUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}/`; 
 
 
@@ -39,7 +40,7 @@ export default class App extends Component {
             method: "post", 
             url: todosUrl, 
             data: {txt: event.target.txt.value}
-        }).then (res => {
+        }).then ( res => {
             const newTodos = this.state.userData.todos; 
             newTodos.push(res.data); 
 
@@ -50,15 +51,30 @@ export default class App extends Component {
                 }
             }))
         })
+        event.target.reset(); 
     }
 
-    updateTodo = (event) => {
+    updateTxt = (event) => {
         event.preventDefault(); 
         Axios({
             method: "patch", 
-            url: patchTodoUrl + event.target.id, 
+            url: patchTxtUrl + event.target.id, 
             data: {txt: event.target.txt.value}
-        }).then (res => {
+        }).then ( res => {
+            this.setState(prevState => ({
+                userData: res.data
+            }))
+        })
+        event.target.reset(); 
+    }
+
+    updateStatus = (event) => {
+        event.preventDefault(); 
+        Axios({
+            method: "patch", 
+            url: patchStatusUrl + event.target.id, 
+            data: {status: event.target.value} 
+        }).then ( res => {
             this.setState(prevState => ({
                 userData: res.data
             }))
@@ -95,7 +111,8 @@ export default class App extends Component {
                                     <Notebook 
                                         todos = {this.state.userData.todos} 
                                         createTodo = {this.createTodo} 
-                                        updateTodo = {this.updateTodo} 
+                                        updateTxt = {this.updateTxt} 
+                                        updateStatus = {this.updateStatus} 
                                         deleteTodo = {this.deleteTodo} 
                                         {...props}
                                     />  

@@ -44,12 +44,6 @@ export default class TodoKbab extends Component {
                             >
                                 Delete
                             </button>
-                            <button 
-                                className = 'kbabMenu__action' 
-                                id = {this.props.id} 
-                            >
-                                Set Cancelled
-                            </button>
                         </div>
                 }
             </div>

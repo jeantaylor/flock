@@ -9,7 +9,7 @@ export default class AddTodo extends Component {
             >
                 <input 
                     name = 'txt'
-                    placeholder = 'Give me Todos to digest!'
+                    placeholder = 'What to do?'
                 />
                 <button type='submit'>Plus Bucket</button>
             </form>
