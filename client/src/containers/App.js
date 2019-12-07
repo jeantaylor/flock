@@ -105,6 +105,7 @@ export default class App extends Component {
               render={props => (
                 <Notebook
                   todos={this.state.userData.todos}
+                  preferences={this.state.userData.preferences}
                   createTodo={this.createTodo}
                   updateTxt={this.updateTxt}
                   updateStatus={this.updateStatus}
