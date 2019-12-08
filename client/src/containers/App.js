@@ -22,16 +22,18 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
-      userData: {}
+      userData: {},
+      showTimer: false
     };
-  }
+  };
 
   componentDidMount() {
     Axios.get(userUrl).then(res => {
       this.setState({ userData: res.data, loading: false });
     });
-  }
+  };
 
+  /// CRUD Functions: Todos 
   createTodo = event => {
     event.preventDefault();
     Axios({
@@ -77,6 +79,10 @@ export default class App extends Component {
         userData: res.data
       }));
     });
+
+    if (event.target.value === 'doing') {
+      this.setState({ showTimer: true })
+    }
   };
 
   deleteTodo = event => {
@@ -90,6 +96,11 @@ export default class App extends Component {
       }));
     });
   };
+
+  /// Pomo Functions 
+  pomoToggleOff = () => {
+    this.setState({ showTimer: false })
+  }
 
   render() {
     if (this.state.loading) {
@@ -106,10 +117,12 @@ export default class App extends Component {
                 <Notebook
                   todos={this.state.userData.todos}
                   preferences={this.state.userData.preferences}
+                  showTimer={this.state.showTimer}
                   createTodo={this.createTodo}
                   updateTxt={this.updateTxt}
                   updateStatus={this.updateStatus}
                   deleteTodo={this.deleteTodo}
+                  pomoToggleOff={this.pomoToggleOff}
                   {...props}
                 />
               )}

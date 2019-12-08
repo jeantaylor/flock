@@ -18,7 +18,14 @@ export default class Notebook extends Component {
           updateStatus={this.props.updateStatus}
           deleteTodo={this.props.deleteTodo}
         />
-        <Pomo preferences={this.props.preferences} />
+        {
+          this.props.showTimer
+          &&
+          <Pomo
+            preferences={this.props.preferences}
+            pomoToggleOff={this.props.pomoToggleOff}
+          />
+        }
       </>
     );
   }
