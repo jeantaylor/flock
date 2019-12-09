@@ -14,8 +14,8 @@ export default class PomoTimer extends Component {
       shrtBreak: this.props.preferences.shrtBreak,
       lngBreak: this.props.preferences.lngBreak,
       wrkDur: this.props.preferences.wrkDur,
-      minutes: 1,
-      seconds: 0
+      minutes: 0,
+      seconds: 15
     };
     this.startPomo = this.startPomo.bind(this);
     this.collectPomo = this.collectPomo.bind(this);

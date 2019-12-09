@@ -4,9 +4,15 @@ import React, { Component } from "react";
 export default class AddTodo extends Component {
   render() {
     return (
-      <form onSubmit={this.props.createTodo}>
-        <input name="txt" placeholder="What to do?" />
-        <button type="submit">Plus Bucket</button>
+      <form
+        className='addTodo'
+        onSubmit={this.props.createTodo}
+      >
+        <input
+          className='addTodo__input'
+          name="txt"
+          placeholder="What to do?"
+        />
       </form>
     );
   }

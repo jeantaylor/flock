@@ -3,9 +3,27 @@
 html,
 body {
   margin: 0;
-  // font-family: AvenirReg, sans-serif;
+  font-family: "MonserLtIta";
   height: 100vh;
   box-sizing: border-box;
+}
+
+input,
+select,
+button {
+  font-family: "JoseReg";
+  text-align: center;
+  border: none;
+}
+
+input,
+select {
+  height: 35px;
+  padding: 5px 10px;
+}
+
+::placeholder {
+  color: darkslategrey;
 }
 
 /* Enforces border-box for whole site */
@@ -19,3 +37,8 @@ body {
 
 @import "./partials/breakpoints";
 @import "./partials/fonts";
+@import "./partials/dock";
+@import "./partials/notebook";
+@import "./partials/Todo/addTodo";
+@import "./partials/Todo/todoCard";
+@import "./partials/Todo/todoKbab"; 

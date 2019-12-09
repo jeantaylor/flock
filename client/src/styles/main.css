@@ -1,9 +1,40 @@
 html,
 body {
   margin: 0;
+  font-family: "MonserLtIta";
   height: 100vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+input,
+select,
+button {
+  font-family: "JoseReg";
+  text-align: center;
+  border: none;
+}
+
+input,
+select {
+  height: 35px;
+  padding: 5px 10px;
+}
+
+::-webkit-input-placeholder {
+  color: darkslategrey;
+}
+
+:-ms-input-placeholder {
+  color: darkslategrey;
+}
+
+::-ms-input-placeholder {
+  color: darkslategrey;
+}
+
+::placeholder {
+  color: darkslategrey;
 }
 
 /* Enforces border-box for whole site */
@@ -17,4 +48,259 @@ body {
 /* Imports */
 /* Media Query: Tablet */
 /* Media Query: Desktop */
+@font-face {
+  font-family: "JoseReg";
+  src: url("../assets/Fonts/JosefinSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JoseIta";
+  src: url("../assets/Fonts/JosefinSans-Italic.ttf");
+}
+
+@font-face {
+  font-family: "MontserLt";
+  src: url("../assets/Fonts/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: "MonserLtIta";
+  src: url("../assets/Fonts/Montserrat-LightItalic.ttf");
+}
+
+.dock {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/images/desk.jpg");
+  border-image-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dock__hero {
+  background-color: rgba(225, 225, 225, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 24vh;
+}
+
+.dock__heroTitle {
+  font-family: "JoseReg";
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.dock__welcome {
+  height: 40vh;
+  font-size: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dock__welcome--txtWrapper {
+  background-color: rgba(225, 225, 225, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dock__welcome--user {
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 768px) {
+  .className {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .className {
+    margin: 0;
+  }
+}
+
+.notebook {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/images/desk.jpg");
+  border-image-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .className {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .className {
+    margin: 0;
+  }
+}
+
+.addTodo {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.addTodo__input {
+  margin-bottom: 20px;
+  width: 60%;
+  max-width: 320px;
+  border: 1px solid burlywood;
+}
+
+@media only screen and (min-width: 768px) {
+  .addTodo {
+    width: 42%;
+  }
+}
+
+/* Wrapper for all todo cards */
+.todoCards {
+  width: 90vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .todoCards {
+    margin: 0;
+    width: 70vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .todoCards {
+    margin: 0;
+  }
+}
+
+/* Below: For single todo cards */
+.todoCard {
+  margin: 15px;
+  width: 100%;
+  max-width: 480px;
+  height: 60px;
+  background-color: rgba(225, 225, 225, 0.7);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.todoCard__innerWrapper {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todoCard__txtForm {
+  width: 80%;
+}
+
+.todoCard__txtInput {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .todoCard {
+    width: 40vw;
+  }
+  .todoCard__innerWrapper {
+    width: 90%;
+  }
+  .todoCard__txtForm {
+    width: 70%;
+  }
+  .todoCard__txtInput {
+    width: 100%;
+  }
+}
+
+.kbabMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.kbabMenu__actions {
+  position: absolute;
+  right: 0;
+}
 /*# sourceMappingURL=main.css.map */

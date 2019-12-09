@@ -9,7 +9,7 @@ import Pomo from './Pomodoro/PomoTimer';
 export default class Notebook extends Component {
   render() {
     return (
-      <>
+      <div className='notebook'>
         <div>--- NOTEBOOK ---</div>
         <AddTodo createTodo={this.props.createTodo} />
         <TodoCard
@@ -26,7 +26,7 @@ export default class Notebook extends Component {
             pomoToggleOff={this.props.pomoToggleOff}
           />
         }
-      </>
+      </div>
     );
   }
 }
