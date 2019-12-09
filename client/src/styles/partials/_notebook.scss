@@ -1,0 +1,25 @@
+.notebook {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/images/desk.jpg");
+  border-image-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@include medium {
+  .className {
+    margin: 0;
+  }
+}
+
+@include large {
+  .className {
+    margin: 0;
+  }
+}

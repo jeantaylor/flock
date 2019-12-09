@@ -1,0 +1,62 @@
+// Photo by Mike Tinnion on Unsplash
+// Photo by Andyone on Unsplash
+
+.dock {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/images/desk.jpg");
+  border-image-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__hero {
+    background-color: rgba(225, 225, 225, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 24vh;
+  }
+
+  &__heroTitle {
+    font-family: "JoseReg";
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  &__welcome {
+    height: 40vh;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--txtWrapper {
+      background-color: rgba(225, 225, 225, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    &--user {
+      text-transform: capitalize;
+    }
+  }
+}
+
+@include medium {
+  .className {
+    margin: 0;
+  }
+}
+
+@include large {
+  .className {
+    margin: 0;
+  }
+}

@@ -1,0 +1,9 @@
+.kbabMenu {
+  position: relative; 
+  display: inline-block;
+
+  &__actions {
+    position: absolute; 
+    right: 0; 
+  }
+}

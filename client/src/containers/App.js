@@ -108,9 +108,10 @@ export default class App extends Component {
     } else {
       return (
         <div className="app">
-          <Dock />
-
           <Switch>
+            <Route path="/" exact>
+              <Dock />
+            </Route>
             <Route
               path="/todos/:user"
               render={props => (

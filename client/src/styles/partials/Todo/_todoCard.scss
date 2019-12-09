@@ -1,0 +1,72 @@
+/* Wrapper for all todo cards */
+.todoCards {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@include medium {
+  .todoCards {
+    margin: 0;
+    width: 70vw;
+  }
+}
+
+@include large {
+  .todoCards {
+    margin: 0;
+  }
+}
+
+/* Below: For single todo cards */
+
+.todoCard {
+  margin: 15px;
+  width: 100%;
+  max-width: 480px;
+  height: 60px;
+  background-color: rgba(225, 225, 225, 0.7);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__innerWrapper {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__txtForm {
+    width: 80%;
+  }
+
+  &__txtInput {
+    width: 100%;
+  }
+}
+
+@include medium {
+  .todoCard {
+    width: 40vw;
+
+    &__innerWrapper {
+      width: 90%;
+    }
+
+    &__txtForm {
+      width: 70%;
+    }
+
+    &__txtInput {
+      width: 100%;
+    }
+  }
+}
+
+@include large {
+  .todoCard {
+  }
+}
