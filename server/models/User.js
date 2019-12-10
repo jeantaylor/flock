@@ -18,6 +18,7 @@ const UserSchema = mongoose.Schema({
     type: PreferenceSchema,
     default: () => ({})
   },
+  earnedPomos: 0,
   todos: []
 });
 

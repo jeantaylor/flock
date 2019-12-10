@@ -25,7 +25,7 @@ router.patch("/:user/birb", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -35,7 +35,7 @@ router.patch("/:user/birb", async (req, res) => {
   );
 });
 
-/// PATCH Paper ---> DONE
+/// PATCH Paper ---> Field has been removed from schema for now
 router.patch("/:user/paper", async (req, res) => {
   const preferences = await User.findById(req.params.user, "preferences");
   preferences.preferences.paper = req.body.paper;
@@ -48,7 +48,7 @@ router.patch("/:user/paper", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -58,7 +58,7 @@ router.patch("/:user/paper", async (req, res) => {
   );
 });
 
-/// PATCH Font ---> DONE
+/// PATCH Font ---> Field has been removed from schema for now
 router.patch("/:user/font", async (req, res) => {
   const preferences = await User.findById(req.params.user, "preferences");
   preferences.preferences.font = req.body.font;
@@ -71,7 +71,7 @@ router.patch("/:user/font", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -94,7 +94,7 @@ router.patch("/:user/wrkDur", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -117,7 +117,7 @@ router.patch("/:user/shrtBreak", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -140,7 +140,7 @@ router.patch("/:user/lngBreak", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -163,7 +163,7 @@ router.patch("/:user/shrtPerLng", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {
@@ -186,7 +186,7 @@ router.patch("/:user/alert", async (req, res) => {
       }
     },
     { new: true },
-    function(err, user) {
+    function (err, user) {
       if (err) {
         res.status(400).json(err);
       } else {

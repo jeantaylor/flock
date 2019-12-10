@@ -10,8 +10,7 @@ body {
 input,
 select,
 button {
-  font-family: "JoseSemiBold";
-  text-align: center;
+  font-family: "JoseReg";
   border: none;
 }
 
@@ -113,6 +112,7 @@ select {
 }
 
 .dock__welcome {
+  margin-top: 35px;
   font-family: "JoseSemiBold";
   height: 40vh;
   font-size: 24px;
@@ -148,10 +148,21 @@ select {
           justify-content: center;
   padding: 20px;
   border-radius: 5px;
+  line-height: 32px;
 }
 
 .dock__welcome--user {
   text-transform: capitalize;
+}
+
+.dock__enterCta {
+  background-color: rgba(225, 225, 225, 0);
+}
+
+.dock__birb {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(225, 225, 225, 0.7);
 }
 
 @media only screen and (min-width: 768px) {
@@ -224,6 +235,7 @@ select {
 }
 
 .addTodo__input {
+  text-align: center;
   margin-bottom: 20px;
   width: 60%;
   max-width: 320px;
