@@ -2,12 +2,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Dock extends Component {
-  state = {
-    username: "julio",
-    userId: "5de334179e70eb23286d8b3e"
-  };
+/// Import Assets 
+import Birb from '../assets/images/birb.svg';
 
+export default class Dock extends Component {
   render() {
     return (
       <div className='dock'>
@@ -20,13 +18,14 @@ export default class Dock extends Component {
         <div className='dock__welcome'>
           <div className='dock__welcome--txtWrapper'>
             <div className='dock__welcome--greeting'>Ready to go</div>
-            <div className='dock__welcome--user'>{this.state.username}?</div>
+            <div className='dock__welcome--user'>{this.props.user}?</div>
+            <Link to='/todos/5de334179e70eb23286d8b3e/restaurant'>
+              <button className='dock__enterCta'>
+                <img className='dock__birb' src={Birb} alt='Welcome Birb!' />
+              </button>
+            </Link>
           </div>
-          <Link to='/todos/5de334179e70eb23286d8b3e/restaurant'>
-            <button className='dock__enterCta'>
-              I'm ready!
-            </button>
-          </Link>
+
         </div>
       </div>
     );

@@ -9,8 +9,9 @@ import ControlPanel from "../components/ControlPanel";
 import Axios from "axios";
 
 /// Const Variables
-const currentHaus = "restaurant";
+const currentUser = "Alyssa";
 const currentUserId = "5de334179e70eb23286d8b3e";
+const currentHaus = "webdev";
 const userUrl = `http://localhost:8080/user/${currentUserId}`;
 const todosUrl = `http://localhost:8080/todos/${currentUserId}/${currentHaus}`;
 const patchTxtUrl = `http://localhost:8080/todos/edit/${currentUserId}/${currentHaus}/`;
@@ -104,18 +105,21 @@ export default class App extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div>Empty</div>;
+      return <div>Loading...</div>;
     } else {
       return (
         <div className="app">
           <Switch>
             <Route path="/" exact>
-              <Dock />
+              <Dock
+                user={currentUser}
+              />
             </Route>
             <Route
               path="/todos/:user"
               render={props => (
                 <Notebook
+                  haus={currentHaus}
                   todos={this.state.userData.todos}
                   preferences={this.state.userData.preferences}
                   showTimer={this.state.showTimer}

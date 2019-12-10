@@ -14,7 +14,7 @@ export default class PomoTimer extends Component {
       shrtBreak: this.props.preferences.shrtBreak,
       lngBreak: this.props.preferences.lngBreak,
       wrkDur: this.props.preferences.wrkDur,
-      minutes: this.state.wrkDur,
+      minutes: 1,
       seconds: 0
     };
     this.startPomo = this.startPomo.bind(this);
@@ -51,6 +51,37 @@ export default class PomoTimer extends Component {
 
   collectPomo() {
     this.setState({ collectingPomo: false, earnedPomos: this.state.earnedPomos + 1, minutes: 1 });
+    // if (this.state.earnedPomos <= this.state.pomoLimit) {
+    //   this.setState({ minutes: this.state.shrtBreak })
+    // } else {
+    //   this.setState({ minutes: this.state.lngBreak })
+    // };
+
+    // this.interval = setInterval(() => {
+    //   const { minutes, seconds } = this.state;
+
+    //   if (seconds > 0) {
+    //     this.setState(({ seconds }) => ({
+    //       seconds: seconds - 1
+    //     }))
+    //   }
+
+    //   if (seconds === 0) {
+    //     if (minutes === 0) {
+    //       clearInterval(this.startPomo)
+    //     } else {
+    //       this.setState(({ minutes }) => ({
+    //         minutes: minutes - 1,
+    //         seconds: 59
+    //       }))
+    //     }
+    //   }
+    //   console.log("tick");
+    //   if (minutes === 0 && seconds === 0) {
+    //     clearInterval(this.interval);
+    //     this.setState({ minutes: this.state.wrkDur });
+    //   }
+    // }, 1000);
   }
 
   render() {

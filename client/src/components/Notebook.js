@@ -7,15 +7,11 @@ import TodoCard from './Todo/TodoCard';
 import Pomo from './Pomodoro/PomoTimer';
 
 export default class Notebook extends Component {
-  state = {
-    haus: 'RESTAURANT'
-  }
-
   render() {
     return (
       <div className='notebook'>
         <div className='notebook__overlay'>
-    <div className='notebook__context'>--- {this.state.haus} ---</div>
+          <div className='notebook__context'>--- {this.props.haus} ---</div>
           <AddTodo createTodo={this.props.createTodo} />
           <TodoCard
             todos={this.props.todos}

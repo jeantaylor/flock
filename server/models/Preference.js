@@ -6,16 +6,6 @@ const PreferenceSchema = new mongoose.Schema({
     required: true,
     default: true
   },
-  paper: {
-    type: String,
-    required: true,
-    default: "dot"
-  },
-  font: {
-    type: String,
-    required: true,
-    default: "TBA"
-  },
   wrkDur: {
     type: Number,
     required: true,

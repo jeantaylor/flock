@@ -11,7 +11,7 @@ export default class AddTodo extends Component {
         <input
           className='addTodo__input'
           name="txt"
-          placeholder="What to do?"
+          placeholder="What do?"
         />
       </form>
     );
