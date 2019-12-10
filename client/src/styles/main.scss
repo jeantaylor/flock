@@ -11,7 +11,7 @@ body {
 input,
 select,
 button {
-  font-family: "JoseReg";
+  font-family: "JoseSemiBold";
   text-align: center;
   border: none;
 }
@@ -19,7 +19,7 @@ button {
 input,
 select {
   height: 35px;
-  padding: 5px 10px;
+  padding: 5px 8px;
 }
 
 ::placeholder {
@@ -41,4 +41,5 @@ select {
 @import "./partials/notebook";
 @import "./partials/Todo/addTodo";
 @import "./partials/Todo/todoCard";
-@import "./partials/Todo/todoKbab"; 
+@import "./partials/Todo/todoKbab";
+@import "./partials/Pomo/pomo";

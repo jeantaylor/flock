@@ -6,6 +6,7 @@ export default class TodoStatusBtn extends Component {
     const updateStatus = this.props.updateStatus;
     return (
       <select
+        className='todoCard__status'
         id={this.props.id}
         defaultValue={this.props.status}
         onChange={updateStatus}

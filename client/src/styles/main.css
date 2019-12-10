@@ -10,7 +10,7 @@ body {
 input,
 select,
 button {
-  font-family: "JoseReg";
+  font-family: "JoseSemiBold";
   text-align: center;
   border: none;
 }
@@ -18,7 +18,7 @@ button {
 input,
 select {
   height: 35px;
-  padding: 5px 10px;
+  padding: 5px 8px;
 }
 
 ::-webkit-input-placeholder {
@@ -54,6 +54,11 @@ select {
 }
 
 @font-face {
+  font-family: "JoseSemiBold";
+  src: url("../assets/Fonts/JosefinSans-SemiBold.ttf");
+}
+
+@font-face {
   font-family: "JoseIta";
   src: url("../assets/Fonts/JosefinSans-Italic.ttf");
 }
@@ -68,11 +73,16 @@ select {
   src: url("../assets/Fonts/Montserrat-LightItalic.ttf");
 }
 
+@font-face {
+  font-family: "MonserSemiBoldIta";
+  src: url("../assets/Fonts/Montserrat-SemiBoldItalic.ttf");
+}
+
 .dock {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-image: url("../assets/images/desk.jpg");
+  background-image: url("../assets/images/minimalistGridDesk.jpg");
   border-image-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -97,12 +107,13 @@ select {
 }
 
 .dock__heroTitle {
-  font-family: "JoseReg";
+  font-family: "JoseSemiBold";
   font-size: 25px;
   margin-bottom: 20px;
 }
 
 .dock__welcome {
+  font-family: "JoseSemiBold";
   height: 40vh;
   font-size: 24px;
   display: -webkit-box;
@@ -156,13 +167,33 @@ select {
 }
 
 .notebook {
-  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: url("../assets/images/desk.jpg");
+  background-image: url("../assets/images/minimalistGridDesk.jpg");
   border-image-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notebook__overlay {
+  height: 95vh;
+  width: 95vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,18 +204,12 @@ select {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: rgba(225, 225, 225, 0.7);
 }
 
-@media only screen and (min-width: 768px) {
-  .className {
-    margin: 0;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .className {
-    margin: 0;
-  }
+.notebook__context {
+  font-family: "JoseReg";
+  margin: 15px;
 }
 
 .addTodo {
@@ -202,7 +227,7 @@ select {
   margin-bottom: 20px;
   width: 60%;
   max-width: 320px;
-  border: 1px solid burlywood;
+  border: 2px solid burlywood;
 }
 
 @media only screen and (min-width: 768px) {
@@ -245,7 +270,7 @@ select {
   width: 100%;
   max-width: 480px;
   height: 60px;
-  background-color: rgba(225, 225, 225, 0.7);
+  background-color: rgba(45, 76, 107, 0.85);
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,8 +300,13 @@ select {
   width: 80%;
 }
 
+.todoCard__status {
+  border-radius: 5px 0 0 5px;
+}
+
 .todoCard__txtInput {
   width: 100%;
+  border-radius: 0 5px 5px 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -299,8 +329,71 @@ select {
   display: inline-block;
 }
 
+.kbabMenu__btn {
+  background: none;
+  margin-left: 5px;
+}
+
 .kbabMenu__actions {
   position: absolute;
   right: 0;
+}
+
+.kbabMenu__action {
+  background-color: linen;
+  padding: 10px 15px;
+}
+
+.pomo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: gainsboro;
+  background-color: rgba(45, 76, 107, 0.85);
+}
+
+.pomo__header {
+  font-family: "MonserSemiBoldIta";
+  margin-bottom: 10px;
+}
+
+.pomo__cta {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: linen;
+}
+
+.pomo__countdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(45, 76, 107, 0.85);
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: gainsboro;
+  font-family: "MonserSemiBoldIta";
 }
 /*# sourceMappingURL=main.css.map */

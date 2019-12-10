@@ -1,8 +1,11 @@
 .notebook {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: url("../assets/images/desk.jpg");
+  background-image: url("../assets/images/minimalistGridDesk.jpg");
   border-image-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -10,16 +13,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-@include medium {
-  .className {
-    margin: 0;
+  &__overlay {
+    height: 95vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(225, 225, 225, 0.7);
   }
-}
 
-@include large {
-  .className {
-    margin: 0;
+  &__context {
+    font-family: "JoseReg";
+    margin: 15px;
   }
 }
