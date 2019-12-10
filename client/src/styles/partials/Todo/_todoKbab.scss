@@ -1,9 +1,19 @@
 .kbabMenu {
-  position: relative; 
+  position: relative;
   display: inline-block;
 
+  &__btn {
+    background: none;
+    margin-left: 5px;
+  }
+
   &__actions {
-    position: absolute; 
-    right: 0; 
+    position: absolute;
+    right: 0;
+  }
+
+  &__action {
+    background-color: linen;
+    padding: 10px 15px;
   }
 }
