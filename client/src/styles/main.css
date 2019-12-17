@@ -166,8 +166,12 @@ select {
 }
 
 @media only screen and (min-width: 768px) {
-  .className {
+  .dock {
     margin: 0;
+  }
+  .dock__heroTitle {
+    font-size: 36px;
+    margin-bottom: 20px;
   }
 }
 

@@ -7,14 +7,13 @@ export default class PomoTimer extends Component {
     this.state = {
       pomoToggleOff: this.props.pomoToggleOff,
       tracking: false,
-      onBreak: false,
       earnedPomos: 0,
       collectingPomo: false,
       pomoLimit: this.props.preferences.shrtPerLng,
       shrtBreak: this.props.preferences.shrtBreak,
       lngBreak: this.props.preferences.lngBreak,
-      wrkDur: this.props.preferences.wrkDur,
-      minutes: this.state.wrkDur,
+      wrkDur: 1,
+      minutes: 1,
       seconds: 0
     };
     this.startPomo = this.startPomo.bind(this);
@@ -67,8 +66,8 @@ export default class PomoTimer extends Component {
                 <div className='pomo__header'>Want to track?</div>
                 <div className='pomo__earned'>Earned pomos: {this.state.earnedPomos}</div>
                 <div className='pomo__ctaWrapper'>
-                  <button className='pomo__cta' type='button' onClick={this.startPomo}>Yee</button>
-                  <button className='pomo__cta' type='button' onClick={this.state.pomoToggleOff}>Nuu</button>
+                  <button className='pomo__cta' type='button' onClick={this.startPomo}>Yes</button>
+                  <button className='pomo__cta' type='button' onClick={this.state.pomoToggleOff}>Cancel</button>
                 </div>
               </div>
               :
